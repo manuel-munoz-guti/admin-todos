@@ -7,14 +7,18 @@ Steps for running the app locally
 ```
 docker compose up -d
 ```
-
 2. Rename .env.template to .env
-
 3. Replace environmental variables inside .env with correct values.
+4. Run the command ```npm install```
+5. Run the project with: ```npm run dev```
+6. Execute the following commands:
+```
 
-4. Run the project with: `npm run dev`
+npx prisma migrate dev
+npx prisma generate
 
-5. Navigate to [this enpoint](localhost:3000/api/seed) to force the db seed process
+```
+7. Navigate to [this enpoint](localhost:3000/api/seed) to force the db seed process
 
 ### Prisma commands
 ```
