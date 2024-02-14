@@ -2,18 +2,24 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CiBookmarkCheck, CiLogout } from 'react-icons/ci';
 import { SidebarItem } from './SidebarItem';
+import { IoCalendarOutline, IoCheckboxOutline, IoListOutline } from 'react-icons/io5';
 
 const navbarItemsArray = [
   {
-    text: 'Dashboard',
+    title: 'Dashboard',
     path: '/dashboard',
-    icon: <CiBookmarkCheck size={30} />
+    icon: <IoCalendarOutline size={30} />
   },
   {
-    text: 'Categories',
-    path: '/categories',
-    icon: <CiBookmarkCheck size={30} />
-  }
+    title: 'Rest TODOS',
+    path: '/dashboard/rest-todos',
+    icon: <IoCheckboxOutline size={30} />
+  },
+  {
+    title: 'Server Actions',
+    path: '/dashboard/server-todos',
+    icon: <IoListOutline size={30} />
+  },
 ];
 
 export const Sidebar = () => {
@@ -47,7 +53,7 @@ export const Sidebar = () => {
         <ul className="space-y-2 tracking-wide mt-8">
           {
             navbarItemsArray.map((item) => (
-              <SidebarItem key={item.text} {...item} />
+              <SidebarItem key={item.path} {...item} />
             ))
           }
         </ul>
