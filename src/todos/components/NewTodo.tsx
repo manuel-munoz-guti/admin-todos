@@ -1,29 +1,34 @@
 'use client';
 
-import { FormEvent, SyntheticEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { IoTrashOutline } from 'react-icons/io5';
-import * as todosApi from '../helpers/todos';
-import { useRouter } from 'next/navigation';
+// import * as todosApi from '../helpers/todos';
+// import { useRouter } from 'next/navigation';
+import { addTodo, deleteCompleted } from '../actions/todo-actions';
 
 export const NewTodo = () => { 
-  const router = useRouter();
+  // const router = useRouter();
   const [description, setDescription] = useState('');
  
   const onSubmit = async( e: FormEvent) => {
     e.preventDefault();
     if (description.trim().length === 0) return;
     
-    await todosApi.createTodo(description.trim());
+    await addTodo(description.trim());
     setDescription('');
 
-    router.refresh();
+    // router.refresh(); // Esta linea es con API en vez de server actions
+    
   }
 
-  const deleteCompleted = async() => {
-    const todosDeletedCount = await todosApi.deleteCompletedTodos();
+  const onDeleteCompleted = async() => {
+    // const todosDeletedCount = await todosApi.deleteCompletedTodos();
 
-    console.log('Se borraron: ', todosDeletedCount, ' todos');
-    router.refresh();
+    // console.log('Se borraron: ', todosDeletedCount, ' todos');
+    // router.refresh();
+
+    const result = await deleteCompleted();
+    console.log(result);
   }
 
   return (
@@ -41,7 +46,7 @@ export const NewTodo = () => {
       <span className='flex flex-1'></span>
 
       <button 
-        onClick={ deleteCompleted }
+        onClick={ onDeleteCompleted }
         type='button' className="flex items-center justify-center rounded ml-2 bg-red-400 p-2 text-white hover:bg-red-700 transition-all">
         <IoTrashOutline />
         Delete
