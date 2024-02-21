@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CiBookmarkCheck, CiLogout } from 'react-icons/ci';
 import { SidebarItem } from './SidebarItem';
-import { IoCalendarOutline, IoCheckboxOutline, IoListOutline } from 'react-icons/io5';
+import { IoBasketOutline, IoCalendarOutline, IoCheckboxOutline, IoCodeWorkingOutline, IoListOutline } from 'react-icons/io5';
 
 const navbarItemsArray = [
   {
@@ -19,6 +19,16 @@ const navbarItemsArray = [
     title: 'Server Actions',
     path: '/dashboard/server-todos',
     icon: <IoListOutline size={30} />
+  },
+  {
+    title: 'Cookies',
+    path: '/dashboard/cookies',
+    icon: <IoCodeWorkingOutline size={30} />
+  },
+  {
+    title: 'Product',
+    path: '/dashboard/products',
+    icon: <IoBasketOutline size={30} />
   },
 ];
 
