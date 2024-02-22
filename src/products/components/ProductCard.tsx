@@ -25,7 +25,7 @@ export const ProductCard = ({ id, name, price, rating, image}: Props) => {
     router.refresh();
   }
 
-  const onRemoveToCard = () => {
+  const onRemoveFromCard = () => {
     removeProductFromCart(id);
     router.refresh();
   }
@@ -78,7 +78,7 @@ export const ProductCard = ({ id, name, price, rating, image}: Props) => {
                 <IoAddCircleOutline size={25} />
             </button>
             <button
-              onClick={ onRemoveToCard }
+              onClick={ onRemoveFromCard }
               className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
                 <IoTrashOutline size={20} />
             </button>
