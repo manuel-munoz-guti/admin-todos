@@ -4,6 +4,7 @@ import { CiLogout } from 'react-icons/ci';
 import { SidebarItem } from './SidebarItem';
 import { IoBasketOutline, IoCalendarOutline, IoCheckboxOutline, IoCodeWorkingOutline, IoListOutline, IoPersonOutline } from 'react-icons/io5';
 import { Session } from 'next-auth';
+import { LogoutButton } from '..';
 
 const DEFAULT_USER_IMAGE='https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp';
 const DEFAULT_USER_NAME='Anonymus';
@@ -70,7 +71,9 @@ export const Sidebar = ({ sesion }: Props) => {
             alt=""
           />
           <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{ sesion?.user?.name ?? DEFAULT_USER_NAME}</h5>
-          <span className="hidden text-gray-400 lg:block">Admin</span>
+          <span className="hidden text-gray-400 lg:block capitalize">
+            { sesion?.user?.roles?.join(',') ?? ['client'] }
+          </span>
         </div>
 
         <ul className="space-y-2 tracking-wide mt-8">
@@ -83,10 +86,7 @@ export const Sidebar = ({ sesion }: Props) => {
       </div>
 
       <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-        <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-          <CiLogout />
-          <span className="group-hover:text-gray-700">Logout</span>
-        </button>
+        <LogoutButton />
       </div>
     </aside>
   )

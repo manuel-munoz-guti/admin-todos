@@ -18,6 +18,8 @@ export default function ProfilePage() {
         <span className="className flex flex-row">{ sesion?.user?.name ?? 'Anonimus' }</span>
         <span className="className flex flex-row">{ sesion?.user?.email ?? 'No email' }</span>
         <span className="className flex flex-row">{ sesion?.user?.image ?? 'No image' }</span>
+        <span className="className flex flex-row">{ sesion?.user?.id ?? 'No id' }</span>
+        <span className="className flex flex-row">{ sesion?.user?.roles?.join(',') ?? ['no-roles'] }</span>
       </div>
     </div>
   );
