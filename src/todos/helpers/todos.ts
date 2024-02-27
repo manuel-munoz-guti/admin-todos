@@ -25,7 +25,7 @@ export const createTodo = async(description:string):Promise<Todo> => {
         method: 'POST',
         body: JSON.stringify( body ),
         headers: {
-            'Content-Type': 'applitcation/json'
+            'Content-Type': 'applitcation/json',
         }
     }).then( response => response.json() );
 

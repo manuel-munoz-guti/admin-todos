@@ -20,6 +20,10 @@ npx prisma generate
 ```
 7. Navigate to [this enpoint](localhost:3000/api/seed) to force the db seed process
 
+## Nota: Usuario por defecto
+__usuario:__ test1@google.com
+__password:__ 123456
+
 ### Prisma commands
 ```
 npx prisma init
